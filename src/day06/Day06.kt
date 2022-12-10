@@ -1,3 +1,7 @@
+package day06
+
+import readInput
+
 fun main() {
 
     fun part1(input: String): Int {

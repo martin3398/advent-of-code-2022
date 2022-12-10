@@ -1,3 +1,6 @@
+package day09
+
+import readInput
 import kotlin.math.absoluteValue
 import kotlin.math.sign
 

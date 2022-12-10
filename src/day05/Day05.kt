@@ -1,3 +1,7 @@
+package day05
+
+import readInput
+
 typealias Day05InputType1 = Pair<Map<Int, List<Char>>, List<Triple<Int, Int, Int>>>
 
 fun main() {

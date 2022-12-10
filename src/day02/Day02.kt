@@ -1,3 +1,7 @@
+package day02
+
+import readInput
+
 fun main() {
 
     val scoreMapPart1 = mapOf<Pair<String, String>, Int>(

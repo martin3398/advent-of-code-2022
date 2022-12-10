@@ -8,7 +8,7 @@ import java.security.MessageDigest
 fun readInput(day: Int, test: Boolean = false): List<String> {
     val dayStr = day.toString().padStart(2, '0')
     val testSuffix = if (test) "_test" else ""
-    return File("src/Day$dayStr", "Day$dayStr${testSuffix}.txt").readLines()
+    return File("src/day$dayStr", "Day$dayStr${testSuffix}.txt").readLines()
 }
 
 /**

@@ -1,3 +1,6 @@
+package day07
+
+import readInput
 import kotlin.math.min
 
 abstract class Node(var size: Int = 0)

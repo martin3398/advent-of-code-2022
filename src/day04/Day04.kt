@@ -1,3 +1,7 @@
+package day04
+
+import readInput
+
 typealias Day04InputType1 = List<Pair<Pair<Int, Int>, Pair<Int, Int>>>
 
 fun main() {

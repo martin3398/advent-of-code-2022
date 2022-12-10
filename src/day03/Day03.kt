@@ -1,3 +1,7 @@
+package day03
+
+import readInput
+
 typealias Day03InputType1 = List<Pair<Set<Char>, Set<Char>>>
 typealias Day03InputType2 = List<Set<Char>>
 

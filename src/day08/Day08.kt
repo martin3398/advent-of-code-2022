@@ -1,3 +1,7 @@
+package day08
+
+import readInput
+
 fun main() {
     fun part1(input: Array<IntArray>): Int {
         val width = input.size
