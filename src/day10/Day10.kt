@@ -63,7 +63,15 @@ fun main() {
     val input = readInput(10)
     println(part1(preprocess(input)))
 
-    println(part2(preprocess(testInput)))
+    check(part2(preprocess(testInput)) ==
+            "\n" +
+            "##  ##  ##  ##  ##  ##  ##  ##  ##  ##  \n" +
+            "###   ###   ###   ###   ###   ###   ### \n" +
+            "####    ####    ####    ####    ####    \n" +
+            "#####     #####     #####     #####     \n" +
+            "######      ######      ######      ####\n" +
+            "#######       #######       #######     "
+    )
 
     println(part2(preprocess(input)))
 }
