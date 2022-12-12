@@ -14,14 +14,16 @@ fun Pair<Int, Int>.plusSecond(amount: Int = 1) = Pair(this.first, this.second + 
 
 fun main() {
 
-    fun bfs(input: Triple<Pair<Int, Int>, Pair<Int, Int>, Array<IntArray>>): Int {
-        val (start, end, map) = input
-
+    fun bfs(
+        start: Pair<Int, Int>,
+        map: Array<IntArray>,
+        endCondition: (pos: Pair<Int, Int>, elevation: Int) -> Boolean
+    ): Int {
         val visited = mutableSetOf(start)
         val queue = mutableListOf(Pair(0, start))
         while (queue.isNotEmpty()) {
             val (steps, next) = queue.removeFirst()
-            if (next == end) {
+            if (endCondition(next, map.get(next))) {
                 return steps
             }
 
@@ -37,21 +39,16 @@ fun main() {
         return Int.MAX_VALUE
     }
 
-    fun part1(input: Triple<Pair<Int, Int>, Pair<Int, Int>, Array<IntArray>>): Int = bfs(input)
-
-    fun part2(input: Triple<Pair<Int, Int>, Pair<Int, Int>, Array<IntArray>>): Int {
-        val (_, end, map) = input
-        val candidates = mutableSetOf<Pair<Int, Int>>()
-
-        map.forEachIndexed { i, row ->
-            row.forEachIndexed { j, value ->
-                if (value == 0) {
-                    candidates.add(Pair(i, j))
-                }
-            }
+    fun part1(input: Triple<Pair<Int, Int>, Pair<Int, Int>, Array<IntArray>>): Int =
+        bfs(input.first, input.third) { pos, _ ->
+            pos == input.second
         }
 
-        return candidates.minOf { bfs(Triple(it, end, map)) }
+    fun part2(input: Triple<Pair<Int, Int>, Pair<Int, Int>, Array<IntArray>>): Int = bfs(
+        input.second,
+        input.third.map { it.map { -it }.toIntArray() }.toTypedArray()
+    ) { _, elevation ->
+        elevation == 0
     }
 
     fun preprocess(input: List<String>): Triple<Pair<Int, Int>, Pair<Int, Int>, Array<IntArray>> {
