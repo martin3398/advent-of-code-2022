@@ -21,7 +21,7 @@ fun main() {
             visible[height - 1][i] = true
         }
 
-        var maximum = 0
+        var maximum: Int
         for (i in 1 until height - 1) {
             maximum = input[i][0]
             for (j in 1 until width - 1) {
